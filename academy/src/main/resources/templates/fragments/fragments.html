@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/style.css"
+        <meta name="author" content="Alessandro Cigolini">
+        <title>Project Academy</title>
+	</head>
+	
+
+
+	<!-- Cabecalho -->
+	 <header th:fragment="cabecalho">
+            <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #29B6F6;">
+                <a class="navbar-branch" th:href="@{/}">
+                    <img src="/img/logo_header-site.png" />
+                </a>
+                
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navMobile">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div id="navMobile" class="navbar-collapse collapse justify-content-end">
+                    
+                    <a class="nav-item nav-link">Home</a>
+                    <a class="nav-item nav-link" th:href="@{inserirAluno}">Cadastrar Aluno</a>
+                    <a class="nav-item nav-link">Pesquisar aluno</a>
+                    <a class="nav-item nav-link btn-danger">Sair</a>
+
+
+                </div>
+
+            </nav>
+		</header>
+		
+		<!-- Fragmento -->
+		<footer th:fragment="rodape">
+            <div class="rodape">
+                <span>Todos os direitos reservados - 2021 &copy; Alessandro Cigolini</span>
+            </div>
+        </footer>
+
+    <body>
+		<script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
+        <script src="/webjars/bootstrap/js/bootstrap.min.css"></script>
+	</body>
+</html>

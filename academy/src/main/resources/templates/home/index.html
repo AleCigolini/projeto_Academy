@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/style.css"
+        <meta name="author" content="Alessandro Cigolini">
+        <title>Project Academy</title>
+    </head>
+
+    <body>
+
+       <div th:replace="fragments/fragments :: cabecalho"></div>
+
+        <section class="neo-section" style="background-image: url('img/bg-index.jpg');">
+
+            <div class="sombra"></div>
+
+            <div class="center neo-container">
+
+                <h1 class="texto-centro">Sistema de Gerenciamento de Alunos</h1>
+
+            
+
+            <div class="botoes">
+
+            <div class="wm">
+
+                <h5 class="btnPrincipal">CADASTRAR ALUNO</h5>
+
+            </div>
+            
+            <div class="wm">
+                <h5 class="btnPrincipal justify-content-center">ENCONTRAR ALUNO</h5>
+                
+            </div>
+
+            <div class="clear"></div>
+            </div>
+            </div>
+            
+        </section>
+
+        <div th:replace="fragments/fragments :: rodape"></div>
+
+        <script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
+        <script src="/webjars/bootstrap/js/bootstrap.min.css"></script>
+
+    </body>
+</html>

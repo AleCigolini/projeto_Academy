@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/style.css"
+        <meta name="author" content="Alessandro Cigolini">
+        <title>Encontrar Alunos</title>
+    </head>
+
+    <body>
+		
+		<div th:replace="fragments/fragments :: cabecalho"></div>
+        
+
+		<div class="container" style="margin-top: 10px;">
+
+            <h4> Encontrar Alunos </h4>
+			<hr>
+
+
+			<!-- Pesquisar aluno -->
+
+				<form method="post">
+					<div class="input-group col-6 offset-3">
+						<input class="form-control" placeholder="Busque pelo nome do aluno....">
+						<div class="input-group-append">
+							<button type="submit" class="btn btn-outline-secondary">Pesquisar</button>
+						</div>
+					</div>
+				</form>
+			<br>
+			<hr>
+
+			<!-- Alunos Ativos -->
+			<div class="row">
+				<div class="card" style="width: 288px;">
+					<a th:href="@{/alunos-ativos}">
+						<img class="card-img-top" src="img/Alunos-Ativos.jpg" />
+					</a>
+					<div class="card-body">
+						<h5 class="card-tittle">Alunos ativos no sistema</h5>
+						<p class="card-text">Busque por todos os alunos que estao ativos no sistema</p>
+						<a class="btn btn-outline-primary" th:href="@{/alunos-ativos}">Clique aqui!</a>
+					</div>
+				</div>
+
+				<!-- Alunos Inativos -->
+				
+				<div class="card ml-3" style="width: 288px; margin-left: 20px;">
+					
+					<img class="card-img-top" src="img/Alunos-Inativos.jpg" />
+
+					<div class="card-body">
+						<h5 class="card-tittle">Alunos inativos no sistema</h5>
+						<p class="card-text">Busque por todos os alunos que estao inativos no sistema</p>
+						<a class="btn btn-outline-primary">Clique aqui!</a>
+					</div>
+				</div>
+
+				<!-- Alunos Trancados -->
+
+				<div class="card ml-3" style="width: 288px; margin-left: 20px;">
+					
+					<img class="card-img-top" src="img/Alunos-Trancados.jpg" />
+
+					<div class="card-body">
+						<h5 class="card-tittle">Alunos trancados no sistema</h5>
+						<p class="card-text">Busque por todos os alunos que estao trancados no sistema</p>
+						<a class="btn btn-outline-primary">Clique aqui!</a>
+					</div>
+				</div>
+
+				<!-- Alunos Cancelados -->
+
+				<div class="card mt-3" style="width: 288px;">
+					
+					<img class="card-img-top" src="img/Alunos-Cancelados.jpg" />
+
+					<div class="card-body">
+						<h5 class="card-tittle">Alunos cancelados no sistema</h5>
+						<p class="card-text">Busque por todos os alunos que estao cancelados no sistema</p>
+						<a class="btn btn-outline-primary">Clique aqui!</a>
+					</div>
+				</div>
+			</div>
+
+
+
+
+		
+		</div>
+		
+	
+	</body>
+
+</html>
