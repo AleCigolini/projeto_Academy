@@ -13,7 +13,7 @@ import com.projetoapp.academy.model.Usuario;
 public class UsuarioController {
 	
 	@Autowired(required = true)
-	private UsuarioDao usuarioDao;
+	//private UsuarioDao usuarioDao;
 	
 	@GetMapping("/")
 	public ModelAndView login() {
@@ -30,13 +30,13 @@ public class UsuarioController {
 		return mv;
 	}
 	
-	@PostMapping("salvarUsuario")
+	/*@PostMapping("salvarUsuario")
 	public ModelAndView cadastrar(Usuario usuario) {
 		ModelAndView mv = new ModelAndView();
 		usuarioDao.save(usuario);
 		mv.setViewName("redirect:/index");
 		return mv;
-	}
+	}*/
 	
 	
 	
