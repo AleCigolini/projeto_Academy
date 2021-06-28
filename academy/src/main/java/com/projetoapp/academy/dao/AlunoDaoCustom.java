@@ -7,9 +7,9 @@ import org.springframework.data.jpa.repository.Query;
 
 import com.projetoapp.academy.model.Aluno;
 
-public interface AlunoDao extends JpaRepository<Aluno, Integer> {
+public interface AlunoDaoCustom extends JpaRepository<Aluno, Integer> {
 	
-	@Query(value = "select a from aluno a where a.status = 'ATIVO' ")
-	public List<Aluno> findByAlunosAtivos();
+	//@Query(value = "select a from aluno where a.status = 'ATIVO'")
+	//public List<Aluno> findByAlunoControllerImpl();
 	
 }

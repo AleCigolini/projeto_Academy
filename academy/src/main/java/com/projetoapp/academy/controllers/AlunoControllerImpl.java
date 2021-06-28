@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.projetoapp.academy.dao.AlunoDao;
+import com.projetoapp.academy.dao.AlunoDaoCustom;
 import com.projetoapp.academy.model.Aluno;
 
 @Controller
-public class AlunoController {
+public class AlunoControllerImpl {
 	
 	@Autowired
-	private AlunoDao alunorepositorio;
+	private AlunoDaoCustom alunoDaoCustom;
 	
 	@GetMapping("/inserirAluno")
 	public ModelAndView insertAlunos(Aluno aluno) {
@@ -40,7 +40,7 @@ public class AlunoController {
 			
 		
 			mv.setViewName("redirect:/alunos-adicionados");
-			alunorepositorio.save(aluno);
+			alunoDaoCustom.save(aluno);
 		}
 		
 		return mv;
@@ -51,7 +51,7 @@ public class AlunoController {
 	public ModelAndView listagemAlunos() {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("Aluno/listAlunos");
-		mv.addObject("alunosList", alunorepositorio.findAll());
+		mv.addObject("alunosList", alunoDaoCustom.findAll());
 		return mv;
 	}
 	
@@ -61,7 +61,7 @@ public class AlunoController {
 		
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("Aluno/alterar");
-		Aluno aluno = alunorepositorio.getOne(id);
+		Aluno aluno = alunoDaoCustom.getOne(id);
 		mv.addObject("aluno", aluno);
 		return mv;
 		
@@ -73,7 +73,7 @@ public class AlunoController {
 	public ModelAndView alterar(Aluno aluno) {
 		
 		ModelAndView mv = new ModelAndView();
-		alunorepositorio.save(aluno);
+		alunoDaoCustom.save(aluno);
 		mv.setViewName("redirect:/alunos-adicionados");
 		return mv;
 	}
@@ -81,7 +81,7 @@ public class AlunoController {
 	@GetMapping("/excluir/{id}")
 	public String excluirAluno(@PathVariable("id") Integer id) {
 		
-		alunorepositorio.deleteById(id);
+		alunoDaoCustom.deleteById(id);
 		return "redirect:/alunos-adicionados";
 		
 	}
@@ -93,13 +93,13 @@ public class AlunoController {
 		return mv;
 	}
 	
-	@GetMapping("alunos-ativos")
+	/*@GetMapping("alunos-ativos")
 	public ModelAndView listaAlunosAtivos() {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("Aluno/alunos-ativos");
-		mv.addObject("listaAluno", alunorepositorio.findByAlunosAtivos());
+		mv.addObject("listaAluno", alunoDaoCustom.findByAlunoControllerImpl());
 		return mv;
-	}
+	}*/
 	
 	
 	
