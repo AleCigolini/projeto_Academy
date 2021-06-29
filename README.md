@@ -1,4 +1,5 @@
-# projeto_Academy - Tecnologias utilizadas
+# Projeto Spring Boot
+## Tecnologias utilizadas
 JAVA, Spring Boot, Spring Data, Thymeleaf, Bootstrap, HTML5, CSS3, JavaScript, PostgreSQL.
 
 ## Intuito:
