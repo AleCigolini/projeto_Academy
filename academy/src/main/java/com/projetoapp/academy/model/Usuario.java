@@ -1,5 +1,6 @@
 package com.projetoapp.academy.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,16 +15,23 @@ public class Usuario {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id")
 	private Long id;
 	
 	@Email
+	@Column(name = "email")
 	private String email;
 	
 	@Size(min = 3, max = 20, message = "Digite entre 3 e 20 caracteres")
-	private String usuario;
+	@Column(name = "nome")
+	private String nome;
 	
+	@Column(name = "senha")
 	private String senha;
 
+	
+	
+	
 	public Long getId() {
 		return id;
 	}
@@ -40,12 +48,14 @@ public class Usuario {
 		this.email = email;
 	}
 
-	public String getUsuario() {
-		return usuario;
+
+
+	public String getNome() {
+		return nome;
 	}
 
-	public void setUsuario(String usuario) {
-		this.usuario = usuario;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 	public String getSenha() {
