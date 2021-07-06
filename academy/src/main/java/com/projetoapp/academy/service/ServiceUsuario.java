@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.projetoapp.academy.dao.UsuarioDao;
 import com.projetoapp.academy.exceptions.CriptoExistsException;
 import com.projetoapp.academy.exceptions.EmailExistsException;
+import com.projetoapp.academy.exceptions.ServicesException;
 import com.projetoapp.academy.model.Usuario;
 import com.projetoapp.academy.util.Util;
 
@@ -38,6 +39,18 @@ public class ServiceUsuario {
 		}
 		
 		usuarioDao.save(usuario);
+		
+		
+	}
+	
+	
+	
+	public Usuario loginUsuario(String usuario, String senha) throws ServicesException {
+		
+		
+		Usuario usuarioLogin = usuarioDao.buscarLogin(usuario, senha);
+		return usuarioLogin;
+		
 		
 		
 		
