@@ -13,8 +13,6 @@ import com.projetoapp.academy.service.ServiceUsuario;
 @Controller
 public class UsuarioController {
 	
-	//@Autowired(required = true)
-	//private UsuarioDao usuarioDao;
 	
 	@Autowired
 	private ServiceUsuario serviceUsuario;
