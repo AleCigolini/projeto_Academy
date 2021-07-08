@@ -23,7 +23,6 @@ public class Usuario {
 	private String email;
 	
 	@Size(min = 3, max = 20, message = "Digite entre 3 e 20 caracteres")
-	@Column(name = "nome")
 	private String nome;
 	
 	@Column(name = "senha")

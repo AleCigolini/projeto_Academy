@@ -7,9 +7,11 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.projetoapp.academy.dao.UsuarioDao;
@@ -30,6 +32,7 @@ public class UsuarioController {
 	public ModelAndView login() {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("login/loginAluno");
+		mv.addObject("usuario", new Usuario());
 		return mv;
 	}
 	
@@ -71,7 +74,7 @@ public class UsuarioController {
 		
 		Usuario usuarioLogin = serviceUsuario.loginUsuario(usuario.getNome(), Util.md5(usuario.getSenha()));
 		
-			if(usuarioLogin == null) {
+			if(usuarioLogin == null || !usuarioLogin.getNome().equals(usuario.getNome())) {
 				mv.addObject("msg", "Usuário não encontrado. Tente novamente.");
 			} else {
 				session.setAttribute("usuarioLogado", usuarioLogin);
