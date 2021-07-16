@@ -1,6 +1,6 @@
-# Projeto Spring Boot
-## Tecnologias utilizadas
+# Project Spring Boot
+## Technologies used
 JAVA, Spring Boot, Spring Data, Thymeleaf, Bootstrap, HTML5, CSS3, JavaScript, PostgreSQL.
 
-## Intuito:
-Aprofundar os conhecimentos no framework Spring Boot e ver do que ele é capaz para desenvolvimento front-end e back-end.
+## Objective:
+Deepen your knowledge of the Spring Boot framework and see what it is capable of for front-end and back-end development.
