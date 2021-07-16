@@ -23,11 +23,10 @@ import com.projetoapp.academy.util.Util;
 
 @Controller
 public class UsuarioController {
-	
-	
+
 	@Autowired
 	private ServiceUsuario serviceUsuario;
-	
+
 	@GetMapping("/")
 	public ModelAndView login() {
 		ModelAndView mv = new ModelAndView();
@@ -35,7 +34,7 @@ public class UsuarioController {
 		mv.addObject("usuario", new Usuario());
 		return mv;
 	}
-	
+
 	@GetMapping("/index")
 	public ModelAndView index() {
 		ModelAndView mv = new ModelAndView();
@@ -43,7 +42,7 @@ public class UsuarioController {
 		mv.addObject("aluno", new Aluno());
 		return mv;
 	}
-	
+
 	@GetMapping("/cadastro")
 	public ModelAndView cadastrar() {
 		ModelAndView mv = new ModelAndView();
@@ -51,7 +50,7 @@ public class UsuarioController {
 		mv.setViewName("login/loginCadastro");
 		return mv;
 	}
-	
+
 	@PostMapping("salvarUsuario")
 	public ModelAndView cadastrar(Usuario usuario) throws Exception {
 		ModelAndView mv = new ModelAndView();
@@ -59,36 +58,28 @@ public class UsuarioController {
 		mv.setViewName("login/loginAluno");
 		return mv;
 	}
-	
-	
+
 	@PostMapping("/login")
-	public ModelAndView login(@Valid Usuario usuario, BindingResult br, HttpSession session) throws NoSuchAlgorithmException, ServicesException {
-		
+	public ModelAndView login(@Valid Usuario usuario, BindingResult br, HttpSession session)
+			throws NoSuchAlgorithmException, ServicesException {
+
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("usuario", new Usuario());
-		
-		if(br.hasErrors()) {
+
+		if (br.hasErrors()) {
 			mv.setViewName("login/loginAluno");
 		}
-		
-		
+
 		Usuario usuarioLogin = serviceUsuario.loginUsuario(usuario.getNome(), Util.md5(usuario.getSenha()));
-		
-			if(usuarioLogin == null || !usuarioLogin.getNome().equals(usuario.getNome())) {
-				mv.addObject("msg", "Usuário não encontrado. Tente novamente.");
-			} else {
-				session.setAttribute("usuarioLogado", usuarioLogin);
-				return index();
-			}
-		
+
+		if (usuarioLogin == null) {
+			mv.addObject("msg", "Usuário não encontrado. Tente novamente.");
+		} else {
+			session.setAttribute("usuarioLogado", usuarioLogin);
+			return index();
+		}
+
 		return mv;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
+
 }
